@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.banqu.weathernews.screen.weather.MainActivity">
+    tools:context="com.example.banqu.weathernews.screen.location.LocationSelectActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,16 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/content_main" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_plus"
-        android:layout_margin="@dimen/fab_margin"
-        android:layout_gravity="end|bottom" />
+    <include layout="@layout/content_location_select" />
 
 </android.support.design.widget.CoordinatorLayout>
