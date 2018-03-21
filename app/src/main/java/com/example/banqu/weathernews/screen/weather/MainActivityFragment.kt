@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.example.banqu.weathernews.R
 import com.example.banqu.weathernews.api.WeatherRequest
 import com.example.banqu.weathernews.api.WeatherResponse
@@ -29,7 +28,22 @@ class MainActivityFragment : Fragment() {
         weatherViewModel = ViewModelProviders.of(this).get(WeatherViewModel::class.java)
         weatherViewModel.getWeatherResponse().observe(this, Observer<WeatherResponse> { it ->
             val response = it ?: return@Observer
-            (view?.text as TextView).text = response.title
+            view?.title?.text = response.location.city
+            val temperature = response.forecasts[0].temperature
+            view?.temperature?.text = when {
+                temperature.max != null && temperature.min != null ->
+                    "${temperature.max?.celsius}℃ / ${temperature.min?.celsius} ℃"
+                temperature.min != null ->
+                    "- / ${temperature.min?.celsius} ℃"
+                temperature.max != null ->
+                    "${temperature.max?.celsius}℃ / -"
+                else -> ""
+            }
+
+            val iconWeather = view?.icon_weather
+            if (iconWeather != null) {
+                weatherViewModel.imageLoader.loadImage(iconWeather, response.forecasts[0].image.url)
+            }
         })
 
         WeatherRequest.getWeatherAt(400040)

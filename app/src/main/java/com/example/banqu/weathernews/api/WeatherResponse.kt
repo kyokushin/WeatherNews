@@ -7,13 +7,16 @@ class WeatherResponse {
     var publicTime = ""
     var title = ""
     var link = ""
-
+    var description = Description()
+    var forecasts = arrayListOf<Forecast>()
+    var location = Location()
+    var pinpontLocations = arrayListOf<PinpontLocation>()
+    var copyright = Copyright()
 }
 
 class Description {
     var text = ""
     var publicTIme = ""
-    var forecasts = arrayListOf<Forecast>()
 }
 
 class Forecast {
@@ -21,11 +24,12 @@ class Forecast {
     var telop = ""
     var date = ""
     var temperature = TemperatureMinMax()
+    var image = Image()
 }
 
 class TemperatureMinMax {
-    var min = Temperature()
-    var max = Temperature()
+    var min: Temperature? = null
+    var max: Temperature? = null
 }
 
 class Temperature {
@@ -37,7 +41,6 @@ class Image {
     var width = -1
     var height = -1
     var url = ""
-    var link = ""
     var title = ""
 }
 
