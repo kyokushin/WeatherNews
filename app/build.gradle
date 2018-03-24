@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 27
@@ -62,16 +62,17 @@ dependencies {
     annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
     // Paging
     implementation "android.arch.paging:runtime:1.0.0-alpha6"
-    // Room (use 1.1.0-alpha3 for latest alpha)
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
 
+    // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     implementation 'com.squareup.retrofit2:converter-simplexml:2.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+
+    // Realm
+
 
     // Test helpers for LiveData
     testImplementation "android.arch.core:core-testing:1.1.0"

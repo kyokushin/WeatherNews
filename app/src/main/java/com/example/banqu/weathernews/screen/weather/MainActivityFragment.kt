@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.banqu.weathernews.R
-import com.example.banqu.weathernews.api.WeatherRequest
+import com.example.banqu.weathernews.api.WeatherHackRequest
 import com.example.banqu.weathernews.api.WeatherResponse
 import com.example.banqu.weathernews.common.Schedulers
 import io.reactivex.rxkotlin.subscribeBy
@@ -32,7 +32,7 @@ class MainActivityFragment : Fragment() {
             (view?.text as TextView).text = response.title
         })
 
-        WeatherRequest.getWeatherAt(400040)
+        WeatherHackRequest.getWeatherAt(400040)
                 .subscribeOn(Schedulers.io())
                 .observeOn(Schedulers.main())
                 .subscribeBy(onSuccess = { response ->

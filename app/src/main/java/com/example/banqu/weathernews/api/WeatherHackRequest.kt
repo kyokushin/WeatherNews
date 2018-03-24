@@ -10,8 +10,9 @@ import retrofit2.http.Query
 
 /**
  * Created by banqu on 2018/03/19.
+ * LiveDoorのWeather Hackリクエスト
  */
-object WeatherRequest {
+object WeatherHackRequest {
 
     private const val URL = "http://weather.livedoor.com/forecast/webservice/"
     private val retrofit: Retrofit
